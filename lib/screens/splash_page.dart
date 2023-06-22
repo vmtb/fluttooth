@@ -2,11 +2,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:timer_controller/timer_controller.dart';
+import 'package:trivo/components/app_text.dart';
+import 'package:trivo/screens/auth/list_devices.dart';
 import 'package:trivo/utils/app_const.dart';
 
 import '../utils/app_func.dart';
-import '../utils/providers.dart';
-import 'auth/login_page.dart';
 import 'home_page.dart';
 
 class SplashPage extends ConsumerStatefulWidget {
@@ -39,11 +39,7 @@ class _SplashPageState extends ConsumerState<SplashPage> {
   Widget build(BuildContext context) {
     return TimerControllerListener(
       listener: (BuildContext context, TimerValue value) async {
-         if(ref.watch(mAuthRef).currentUser==null){
-           navigateToNextPage(context, const LoginPage(), back: false);
-         }else {
-           navigateToNextPage(context, const HomePage(), back: false);
-         }
+        navigateToNextPage(context, const ListDevices(), back: false);
       },
       listenWhen: (previousValue, currentValue){
         log(previousValue);
@@ -64,8 +60,8 @@ class _SplashPageState extends ConsumerState<SplashPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset("assets/img/logo.png"),
+                  children: const [
+                    AppText("Welcome... ", size: 22, weight: FontWeight.w700,)
                   ],
                 ),
               ),

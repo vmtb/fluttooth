@@ -16,11 +16,6 @@ dependencies:
 
   cupertino_icons: ^1.0.2
   flutter_riverpod:
-  cloud_firestore:
-  firebase_core: ^2.0.0
-  firebase_auth: ^4.0.0 #3.11.1
-  firebase_messaging:
-  firebase_storage: ^11.0.0
   dio:
 
   form_validator:
@@ -34,6 +29,9 @@ dependencies:
   url_launcher:
   flutter_svg:
   sn_progress_dialog:
+  flutter_blue_plus:
+  permission_handler:
+  flutter_bluetooth_serial:
 
   flutter_local_notifications: # ^9.8.0
 

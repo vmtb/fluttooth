@@ -1,4 +1,4 @@
-package com.pirc.trivo
+package com.pirc.fluttooth
 
 import io.flutter.embedding.android.FlutterActivity
 

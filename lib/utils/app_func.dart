@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_flushbar/flutter_flushbar.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
-import 'package:trivo/utils/providers.dart';
 
 import '../components/app_text.dart';
 import 'app_const.dart';
@@ -149,55 +148,6 @@ showLogoutModal(BuildContext context, WidgetRef ref) {
               ),
               const Divider(
                 thickness: 1,
-              ),
-              InkWell(
-                onTap: () async {
-                  showFlushBar(
-                      context, "Information", "Déconnexion effectuée...");
-                  await ref.read(mAuthRef).signOut();
-                  //AppLock.of(context)!.disable();
-                  Navigator.pushAndRemoveUntil(
-                      context,
-                      PageRouteBuilder(pageBuilder: (BuildContext context,
-                          Animation animation, Animation secondaryAnimation) {
-                        return   Container();
-                      }, transitionsBuilder: (BuildContext context,
-                          Animation<double> animation,
-                          Animation<double> secondaryAnimation,
-                          Widget child) {
-                        return SlideTransition(
-                          position: Tween<Offset>(
-                            begin: const Offset(1.0, 0.0),
-                            end: Offset.zero,
-                          ).animate(animation),
-                          child: child,
-                        );
-                      }),
-                      (Route route) => false);
-                },
-                child: Column(
-                  children: [
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Row(
-                      children: const [
-                        Icon(Icons.logout),
-                        SizedBox(
-                          width: 15,
-                        ),
-                        AppText(
-                          "Déconnexion",
-                          size: 20,
-                          isNormal: false,
-                        )
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                  ],
-                ),
               ),
               const Divider(
                 thickness: 1,
